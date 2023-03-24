@@ -1,6 +1,6 @@
 const randomstring = require("randomstring");
 const bcrypt = require("bcrypt");
-const User = require("../../models/userauth");
+const User = require("../../../models/userauth");
 
 
 

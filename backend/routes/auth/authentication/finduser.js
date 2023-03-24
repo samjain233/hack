@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const User = require("../../models/userauth");
-const createToken = require("../../../routes/auth/createtoken");
+const User = require("../../../models/userauth");
+const createToken = require("../createtoken");
 
 const findUser = async (email, password,res) => {
     try {
@@ -14,16 +14,14 @@ const findUser = async (email, password,res) => {
             if(verifypassword)
             {
                 const token = await createToken(user._id);
-                res.cookie("jwt", token, {
-                    expires: new Date(Date.now() + 6000000),
-                    httpOnly: true
-                });
-                const result = {
+                const object = {
                     status : true,
-                    statuscode : 200,
-                    userid : user._id
+                    userid : user._id,
+                    token : token ,
+                    email : user.email,
+                    username : user.username
                 }
-                return result;
+                return object;
             }
             else
             {
@@ -50,7 +48,7 @@ const findUser = async (email, password,res) => {
         const result ={
             status : false ,
             error : error,
-            statuscode : 401
+            statuscode : 400
         }
         return result;
     }
