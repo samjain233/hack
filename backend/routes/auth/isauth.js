@@ -1,21 +1,20 @@
-const express = require('express');
-const cookieParser = require('cookie-parser')
+const express = require("express");
 const jwt = require("jsonwebtoken");
-const User = require("../../src/models/userauth");
+const User = require("../../models/userauth");
 
 const app = express();
-app.use(cookieParser());
 
-const isAuth = async (req)=>{
-    try{
-    const token = req.cookies.jwt;
-    const verifyUser = jwt.verify(token,process.env.SECRET);
-    
-    let user = await User.findOne({_id:verifyUser._id}).select({username:1,email:1});
+const isAuth = async (token) => {
+  try {
+    const verifyUser = jwt.verify(token, process.env.SECRET);
+    let user = await User.findOne({ _id: verifyUser._id }).select({
+      username: 1,
+      email: 1,
+    });
     return user;
-    }catch(error){
-        console.log(error);
-    }
-}
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = isAuth;

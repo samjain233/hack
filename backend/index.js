@@ -15,8 +15,12 @@ app.use(cookieParser()); // check it in the end to remove or not
 
 //requiring internal dependencies
 const Auth = require("./routes/auth/auth");
+const saveString = require("./routes/saveString/saveString");
+const getstring = require("./routes/saveString/getString");
 
 app.use("/auth", Auth);
+app.use("/savestring",saveString);
+app.use("/getstring",getstring);
 
 app.get("/",(req,res)=>{
     try{
