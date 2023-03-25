@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    color: black;
+  }
+  
+  section {
+    position: relative;
+    min-height: 100vh;
+    background: url("https://images.unsplash.com/photo-1624969862644-791f3dc98927?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3liZXIlMjBjcmltZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60") #756156;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: 0.5;
+  }
+  
+  .active {
+    background: url("https://images.unsplash.com/photo-1614064642578-7faacdc6336e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") #584e4f;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+  }
+  
+  section .container {
+    position: relative;
+    width: 70vw;
+    height: 80vh;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    /* margin-top: 95px; */
+  }
+  
+  section .container .user {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  section .container .user .imgBx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    transition: 0.5s;
+  }
+  
+  section .container .user .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  section .container .user .formBx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    transition: 0.5s;
+  }
+  
+  section .container .user .formBx h2 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  section .container .user .formBx input {
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 14px;
+    margin: 8px 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  
+  section .container .user .formBx input[type="submit"] {
+    background: #677eff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 10px;
+    transition: 0.5s;
+    border-radius: 5px;
+  }
+  
+  /* .signup_btn {
+    display: flex;
+    width: 100%;
+  }
+  
+  .signup_button {
+    flex: 0.4;
+  } */
+  
+  .signup_button2 {
+    flex: 0.7;
+  }
+  
+  section .container .user .formBx input[type="submit"] {
+    background: #e73e49;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 14px;
+    margin: 8px 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+    background: #677eff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 10px;
+    transition: 0.5s;
+    border-radius: 10px;
+    background: #e73e49;
+  }
+  
+  section .container .user .formBx .signup {
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  
+  section .container .user .formBx .signup a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #577eff;
+  }
+  
+  section .container .signupBx {
+    pointer-events: none;
+  }
+  
+  section .container.active .signupBx {
+    pointer-events: initial;
+  }
+  
+  section .container .signupBx .formBx {
+    top: 100%;
+  }
+  
+  section .container.active .signupBx .formBx {
+    top: 0;
+  }
+  
+  section .container.active .signupBx .imgBx {
+    top: 0;
+  }
+  
+  section .container .signupBx .imgBx {
+    top: -100%;
+    transition: 0.5s;
+    background: url("https://images.unsplash.com/photo-1624969862644-791f3dc98927?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3liZXIlMjBjcmltZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  section .container .signinBx .formBx {
+    top: 0;
+  }
+  
+  section .container.active .signinBx .formBx {
+    top: 100%;
+  }
+  
+  section .container.active .signinBx .imgBx {
+    top: -100%;
+  }
+  
+  section .container .signinBx .imgBx {
+    top: 0;
+    transition: 0.5s;
+    background: url("https://images.unsplash.com/photo-1614064642578-7faacdc6336e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  @media (max-width: 991px) {
+    section .container {
+      max-width: 400px;
+      width: 400px;
+    }
+  
+    section .container .imgBx {
+      display: none;
+    }
+  
+    section .container .user .formBx {
+      width: 100%;
+    }
+  
+    section .container .active .signinBx .formBx {
+      top: -100%;
+    }
+  
+    section .container .signinBx .formBx {
+      top: 0;
+      background: url("https://images.unsplash.com/photo-1624969862644-791f3dc98927?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3liZXIlMjBjcmltZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  
+    section .container .signupBx .formBx {
+      top: -100%;
+      background: url("https://images.unsplash.com/photo-1614064642578-7faacdc6336e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  
+    section .container .user .formBx h2 {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 10px;
+      color: aliceblue;
+    }
+  
+    section .container .user .formBx .signup {
+      position: relative;
+      margin-top: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: aliceblue;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+  
+    section .container .user .formBx .signup a {
+      font-weight: 600;
+      text-decoration: none;
+      color: #9dafeb;
+    }
+  }
+  

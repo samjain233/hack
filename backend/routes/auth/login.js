@@ -69,7 +69,11 @@ router.post("/register", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(400).send(error);
+    const object = {
+      success: false,
+      message: "some error occurred",
+    };
+    res.status(400).send(object);
   }
 });
 

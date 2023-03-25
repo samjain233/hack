@@ -2,8 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const isAuth = require("../auth/isauth");
 const UserString = require("../../models/saveUserPasswords");
-const Cryptr = require('cryptr');
+const Cryptr = require("cryptr");
 const saveSession = require("../saveSessions/savesession");
+var crypto = require("crypto");
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { token, web } = req.body;
+    const { token, web, pass } = req.body;
     //getting user from the token
     const user = await isAuth(token);
     if (user != null) {
@@ -33,12 +34,19 @@ router.post("/", async (req, res) => {
       if (data != null) {
         const cryptedString = data.savedStrings[0].salt;
         const string = cryptr.decrypt(cryptedString);
+        const str1 = string.slice(0, 10);
+        const str2 = string.slice(10);
+        const password = str1 + pass + str2;
+        console.log(password);
+        const hash = await crypto
+          .pbkdf2Sync(password, process.env.CRYPTOSALT, 1000, 64, `sha512`)
+          .toString(`hex`);
+        const hashedPassword = hash.slice(0, 15);
         const object = {
           success: true,
-          str1: string.slice(0, 10),
-          str2: string.slice(10),
+          password: hashedPassword,
         };
-        saveSession(web , "meerut" , user._id); // location is hardcoded for now
+        saveSession(web, "meerut", user._id); // location is hardcoded for now
         res.status(200).send(object);
       } else {
         const object = {
@@ -46,6 +54,7 @@ router.post("/", async (req, res) => {
           message: "Data doesn't exists",
         };
         res.status(400).send(object);
+        console.log("web doesn't exist");
       }
     } else {
       const object = {
@@ -53,6 +62,7 @@ router.post("/", async (req, res) => {
         message: "user doesn't exists",
       };
       res.status(400).send(object);
+      console.log("user doesn't exist");
     }
   } catch (err) {
     console.log(err);
