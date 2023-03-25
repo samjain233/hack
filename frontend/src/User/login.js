@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 
+
 const login = async (email, password) => {
   const server = process.env.REACT_APP_SERVERAPI;
   const authapi = server + "auth/login";
@@ -12,9 +13,11 @@ const login = async (email, password) => {
   console.log(json);
   if (json.success === false) {
     toast.error(json.message);
+    return (false);
   } else {
-    localStorage.setItem("user", json.data.token);
+    localStorage.setItem("userHack", json.data.token);
     toast.success(json.message);
+    return(true);
   }
 };
 

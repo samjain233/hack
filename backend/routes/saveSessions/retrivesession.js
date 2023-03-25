@@ -27,8 +27,13 @@ router.post("/", async (req, res) => {
     const user = await isAuth(req.body.token);
 
     const response = await savedSession.findOne({_id: user._id});
+
+    const object = {
+      username : user.username,
+      response : response 
+    }
     
-    res.send(response.sessions);
+    res.send(object);
     
   } catch (err) {
     console.log(err);

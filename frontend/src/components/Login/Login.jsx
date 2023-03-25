@@ -5,8 +5,10 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import signup from "../../User/Register";
 import login from "../../User/login";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login(props) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
@@ -36,7 +38,10 @@ function Login() {
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    const result = await login(email, password);
+    if (result) {
+      window.location.href = "http://localhost:3000/dashboard";
+    }
   };
 
   const handleSubmitSignup = async (e) => {
@@ -45,7 +50,10 @@ function Login() {
     const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (regExp.test(password)) {
       if (password === passwordAgain) {
-        await signup(name, email, password);
+        const result = await signup(name, email, password);
+        if (result) {
+          window.location.href = "http://localhost:3000/dashboard";
+        }
       } else {
         toast.warn("Confirm Password is not matched with password");
       }
@@ -101,9 +109,6 @@ function Login() {
                   </a>
                 </p>
               </form>
-              <a href="/">
-                <button className="signup_button2">Home</button>
-              </a>
             </div>
           </div>
 
@@ -170,9 +175,6 @@ function Login() {
                   </a>
                 </p>
               </form>
-              <a href="/">
-                <button className="signup_button2">Home</button>
-              </a>
             </div>
             <div className="imgBx"></div>
           </div>

@@ -2,36 +2,15 @@ import React, { useState, useEffect, useReducer } from "react";
 import axios, * as others from "axios";
 import { User } from "../../User/User";
 
-function Sessions() {
-  const [sessions, setSessions] = useState([]);
-
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFkZjliNDEwNDI0MjU1NDkyYzgxZTMiLCJpYXQiOjE2Nzk3NDA4MDksImV4cCI6MTY4OTc0MDgwOX0.Hd_6USaZMj5jleZvBwFRAfRO1n2zQsuAvwWNkZO4JbY";
-
-  const getSessionData = async () => {
-    const server = process.env.REACT_APP_SERVERAPI;
-    const authapi = server + "retrivesession";
-    const response = await fetch(authapi, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token }),
-    });
-    const data = await response.json();
-    console.log(data);
-    setSessions(data);
-  };
-
-  useEffect(() => {
-    getSessionData();
-  }, []);
-
+function Sessions(props) {
+  console.log(props);
   return (
     <>
       <div className="bg-semilight my-2 w-full h-[550px] overflow-auto rounded-md mx-1 box-border p-4">
         <div>
           <p className="text-3xl font-medium">Your Sessions</p>
           <div className="mt-4">
-            {sessions.map((element) => {
+            {props.props.map((element) => {
               return (
                 <div
                   key={element.time}

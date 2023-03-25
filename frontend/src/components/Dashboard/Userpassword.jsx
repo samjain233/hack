@@ -13,9 +13,8 @@ const Userpassword = () => {
   const [web , setWeb] = useState(null); 
   const [password , setpassword] = useState("");
 
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFkZjliNDEwNDI0MjU1NDkyYzgxZTMiLCJpYXQiOjE2Nzk3NDA4MDksImV4cCI6MTY4OTc0MDgwOX0.Hd_6USaZMj5jleZvBwFRAfRO1n2zQsuAvwWNkZO4JbY";
-
+  const token = localStorage.getItem("userHack");
+    
   const fetchaccounts = async () => {
     const server = process.env.REACT_APP_SERVERAPI;
     const authapi = server + "accounts";

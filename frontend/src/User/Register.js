@@ -13,10 +13,12 @@ const signup = async (name, email, password) => {
   if(json.success===false)
   {
     toast.error(json.message);
+    return false;
   }
   else{
-    localStorage.setItem("user", json.data.token);
+    localStorage.setItem("userHack", json.data.token);
     toast.success(json.message);
+    return true;
   }
 
 };
