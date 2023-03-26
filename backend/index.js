@@ -21,12 +21,14 @@ const saveString = require("./routes/saveString/saveString");
 const getstring = require("./routes/saveString/getString");
 const retrievesession = require("./routes/saveSessions/retrivesession");
 const accounts = require("./routes/retriveAccounts/Accounts");
+const createstring = require("./routes/saveString/createstring");
 
 app.use("/auth", Auth);
 app.use("/savestring",saveString);
 app.use("/getstring",getstring);
 app.use("/retrivesession",retrievesession);
-app.use("/accounts",accounts)
+app.use("/accounts",accounts);
+app.use("/createstring",createstring);
 
 app.get("/",(req,res)=>{
     try{
