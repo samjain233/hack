@@ -1,0 +1,33 @@
+.button{
+    background-color: #60B2E5;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 95%;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #3884b3;
+}
+
+.input{
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.logo{
+    width: 80px;
+}
+.logo-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    text-align: center;
+}

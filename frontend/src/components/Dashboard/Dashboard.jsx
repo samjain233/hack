@@ -17,7 +17,9 @@ function Dashboard(props) {
       body: JSON.stringify({ token }),
     });
     const data = await response.json();
+    console.log(data);
     setUsername(data.username);
+    // console.log(data.response);
     setSessions(data.response.sessions);
   };
 

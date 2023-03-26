@@ -5,6 +5,10 @@ const login = document.querySelector('[type="password"]');
 if (check.length == 1) {
   //login
   if (login) {
+    let url = "blank";
+    chrome.runtime.onMessage.addListener((obj,sender,response)=>{
+        url = obj.url;
+    });
     const btn = document.createElement("button");
     btn.innerHTML = "click";
 
@@ -15,8 +19,7 @@ if (check.length == 1) {
       const pass = document.createElement("p");
       pass.innerHTML = login.value;
 
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFkZjliNDEwNDI0MjU1NDkyYzgxZTMiLCJpYXQiOjE2Nzk3NDA4MDksImV4cCI6MTY4OTc0MDgwOX0.Hd_6USaZMj5jleZvBwFRAfRO1n2zQsuAvwWNkZO4JbY";
+      const token = localStorage.getItem("userHack");
       const web = "https://www.amazon.in/";
 
       const response = await fetch("http://localhost:5000/getstring", {
@@ -31,7 +34,7 @@ if (check.length == 1) {
         pass.innerHTML = object.password;
         login.value = object.password;
       }
-      debug.innerHTML = object.success;
+      debug.innerHTML = token;
 
       document.body.appendChild(pass);
       document.body.appendChild(debug);

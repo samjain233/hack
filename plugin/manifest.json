@@ -1,17 +1,16 @@
 {
     "manifest_version" :2,
-    "name":"pageFontStyle Extension",
+    "name":"password protector",
     "version":"1.0",
-    "description":"Changes font style on specific page",
+    "description":"protects the password of user",
     "icons":{
         "128" :"images/icon128.png",
         "48":"images/icon48.png",
         "16":"images/icon16.png"
     },
-    "page_action":{
-        "default_icon":"images/icon16.png",
-        "default_popup":"popup.html",
-        "default_tilte":"PageFontStyle"
+    "browser_action":{
+        "defaul_icon":"images/icon16.png",
+        "default_popup":"popup.html"
     },
     "background":{
         "scripts":["eventPage.js"],

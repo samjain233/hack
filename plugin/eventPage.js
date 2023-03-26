@@ -1,8 +1,10 @@
-// chrome.tabs.onUpdated.addListener((tabId , tab)=>{
-//     console.log(tab.url);
-// });
-
-// chrome.runtime.sendMessage({todo:"showPageAction"});
-
-// const searchBox = document.getElementById("twotabsearchtextbox");
-// console.log(searchBox);
+chrome.tabs.onUpdated.addListener((tabId, tab) => {
+  const data = localStorage.getItem("userHack");
+  console.log(data);
+  if (tab.url) {
+    console.log(tab.url);
+    chrome.tabs.sendMessage(tabId, {
+      url: tab.url,
+    });
+  }
+});

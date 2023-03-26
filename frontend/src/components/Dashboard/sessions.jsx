@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useReducer } from "react";
-import axios, * as others from "axios";
-import { User } from "../../User/User";
 
 function Sessions(props) {
   console.log(props);
@@ -10,7 +8,7 @@ function Sessions(props) {
         <div>
           <p className="text-3xl font-medium">Your Sessions</p>
           <div className="mt-4">
-            {props.props.map((element) => {
+            {props.props.reverse().map((element) => {
               return (
                 <div
                   key={element.time}
