@@ -25,6 +25,7 @@
   2) NodeJS
   3) Chrome Extension
   4) Tailwind CSS
+  5) Crypto
   
 
 ## Contributors:
