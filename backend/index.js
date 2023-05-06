@@ -40,5 +40,5 @@ app.get("/",(req,res)=>{
 
 const PORT = 5000;
 app.listen(PORT,()=>{
-    console.log("server is running");
+    console.log("server is running fine");
 })

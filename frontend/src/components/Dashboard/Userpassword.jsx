@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import Select from "react-select";
 import copy from "./copy.png";
 
@@ -22,29 +22,23 @@ const Userpassword = () => {
       body: JSON.stringify({ token }),
     });
     const data = await response.json();
-    console.log(data);
-
-    let saveAccounts = [];
-
-    await data.forEach((element) => {
-      const object = {
-        value: element.web,
-        label: element.web,
-      };
-      saveAccounts.push(object);
-    });
-
-    console.log(saveAccounts);
-
-    setoptions(saveAccounts);
-    console.log(data);
+    if (data.status) {
+      let saveAccounts = [];
+      await data.data.forEach((element) => {
+        const object = {
+          value: element.web,
+          label: element.web,
+        };
+        saveAccounts.push(object);
+      });
+      setoptions(saveAccounts);
+    }
   };
 
-  const copyToClipboard = async ()=>{
+  const copyToClipboard = async () => {
     navigator.clipboard.writeText(password);
     toast.success("password is copied to clipboard");
-
-  }
+  };
 
   const handleclick = async () => {
     const server = process.env.REACT_APP_SERVERAPI;
@@ -100,7 +94,11 @@ const Userpassword = () => {
               />
             </div>
             <div className="absolute top-1 right-4">
-              <img src={copy} className="w-[30px] cursor-pointer hover:w-[34px] transition-all duration-200" onClick={copyToClipboard} />
+              <img
+                src={copy}
+                className="w-[30px] cursor-pointer hover:w-[34px] transition-all duration-200"
+                onClick={copyToClipboard}
+              />
             </div>
           </div>
         </div>

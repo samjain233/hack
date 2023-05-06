@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
     const object = {
         string :string
     }
-    res.send(object);
+    res.json(object);
   } catch (err) {
     console.log(err);
   }

@@ -5,7 +5,10 @@ const saveUserPasswordSchema = new mongoose.Schema({
   _id: String,
   savedStrings: [
     {
-      salt: {
+      salt1: {
+        type: String,
+      },
+      salt2: {
         type: String,
       },
       web: {

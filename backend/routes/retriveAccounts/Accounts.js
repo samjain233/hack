@@ -26,10 +26,32 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const user = await isAuth(req.body.token);
-
-    const response = await UserString.findOne({_id: user._id}).select({savedStrings : {web : 1}});
-
-    res.send(response.savedStrings);
+    if(user != null){
+      const response = await UserString.findOne({_id: user._id}).select({savedStrings : {web : 1}});
+      if(response != null){
+        const data = {
+          status : true,
+          message : "No saved web addresses",
+          data : response.savedStrings
+        }
+        res.json(data);
+      }
+      else{
+        const data = {
+          status : true,
+          message : "No saved web addresses",
+          data : []
+        }
+        res.json(data);
+      }
+    }
+    else{
+      const data = {
+        status : false,
+        message : "User does not exists"
+      }
+      res.json(data);
+    }
     
   } catch (err) {
     console.log(err);
