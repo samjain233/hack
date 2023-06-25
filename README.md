@@ -8,7 +8,7 @@
 ## Introduction:
  This is a chrome extension that strengthens the user's password by concatenating two strings, one at the start of the password and the other one at the end of the 
  password. We divide our user's password into two parts one which the user enters and the other one which we concatenate with the user's given password. So we only 
- store our halfof the password and it is different for different websites and different users. We also store the user's half password in encrypted form, so it's also 
+ store our half of the password and it is different for different websites and different users. We also store the user's half password in encrypted form, so it's also 
  secure.
   
 ## Demo Video Link:
