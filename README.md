@@ -16,6 +16,8 @@
   
 ## Presentation Link:
   <a href="https://www.canva.com/design/DAFeQYF30IE/ZbmTeUYYwamX7R4NWjSiSA/view?utm_content=DAFeQYF30IE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">View Presentation</a>
+
+  <a href="https://www.canva.com/design/DAFpdrqhBX8/qLznwLuYCKNZPMHdqHtxKg/view?utm_content=DAFpdrqhBX8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Presentation 2</a>
   
   
 ## Table of Contents:
